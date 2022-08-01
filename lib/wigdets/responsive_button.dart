@@ -8,19 +8,21 @@ class ResponsiveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: 40,
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 101, 69, 107),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: IconButton(
-        onPressed: () {},
-        icon: Icon(
-          color: Colors.white,
-          size: 28,
-          Icons.arrow_right_alt_rounded,
+    return Flexible(
+      child: Container(
+        width: width,
+        height: 40,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 101, 69, 107),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            color: Colors.white,
+            size: 28,
+            Icons.arrow_right_alt_rounded,
+          ),
         ),
       ),
     );
