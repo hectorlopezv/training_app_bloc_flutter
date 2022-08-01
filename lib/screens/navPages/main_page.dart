@@ -12,19 +12,37 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int _currentIndex = 0;
   late List pages = [
     HomePage(),
     BarItemPage(),
     MyPage(),
     SearchPage(),
   ];
+
+  void onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Main page"),
-      ),
+      backgroundColor: Colors.white,
+
       bottomNavigationBar: BottomNavigationBar(
+        unselectedFontSize: 0,
+        selectedFontSize: 0,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.black54,
+        unselectedItemColor: Colors.grey.withOpacity(0.5),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 0,
+        onTap: onTap,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -44,7 +62,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: pages[0],
+      body: pages[_currentIndex],
     );
   }
 }
